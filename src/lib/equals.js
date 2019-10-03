@@ -1,6 +1,8 @@
-import assertString from './util/assertString';
-
-export default function equals(str, comparison) {
-  assertString(str);
-  return str === comparison;
+export default function equals(comparator, comparitee) {
+  try {
+    let regex = new RegExp(comparator);
+    return regex.test(comparitee);
+  } catch(e) {
+    return false;
+  }
 }
